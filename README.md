@@ -4,9 +4,11 @@ Bugstack's predictions, evaluation report and inference traces for [SWT-Bench](h
 
 | Metric | Result |
 |---|---|
-| Success rate (S) | **92.38%** (400 / 433) |
-| Coverage delta (Δᵃˡˡ) | 67.88% |
+| Success rate (S) | **92.61%** (401 / 433) |
+| Coverage delta (Δᵃˡˡ) | **75.16%** |
 | Applicability (W) | 98.85% |
+
+A second scoring of the same predictions gave 92.38% (400 / 433) and 67.88%. The difference is test flakiness and coverage measurement.
 
 Model: Claude Sonnet 5.5 (Claude Opus 5.5 selects among candidate tests). Project: [bugstack.ai](https://bugstack.ai).
 
@@ -15,7 +17,8 @@ Model: Claude Sonnet 5.5 (Claude Opus 5.5 selects among candidate tests). Projec
 | File | What it is |
 |---|---|
 | `predictions.jsonl` | One prediction per instance: `instance_id`, `model_name_or_path`, `model_patch` (the test, as a git diff against the base commit) |
-| `evaluation_report.json` | The SWT-Bench harness's report for these predictions |
+| `evaluation_report.json` | The SWT-Bench harness's report for these predictions (the scoring above) |
+| `evaluation_report_first-scoring.json` | The harness's report from the second scoring of the same predictions |
 | `traces.zip` (release asset) | One file per instance with every model call in order: the inputs, tool calls and their results, and every model output |
 
 ## Scoring the predictions
